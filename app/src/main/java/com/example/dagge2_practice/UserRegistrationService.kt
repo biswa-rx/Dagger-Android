@@ -1,14 +1,14 @@
 package com.example.dagge2_practice
 
 import javax.inject.Inject
+import javax.inject.Named
 
 class UserRegistrationService @Inject constructor(
     private val userRepository: UserRepository,
-    private val emailService: NotificationService
+    @MessageQualifier private val notificationService: NotificationService
 ) {
     fun resisterUser(email: String, password: String) {
         userRepository.saveUser(email, password)
-        emailService.send(email, "from_user", "You are registered")
+        notificationService.send(email, "from_user", "You are registered")
     }
-
 }
