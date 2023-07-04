@@ -3,9 +3,20 @@ package com.example.dagge2_practice
 import android.util.Log
 import javax.inject.Inject
 
-class EmailService @Inject constructor(){
+
+interface NotificationService{
+    fun send(to: String,from: String,body: String?)
+}
+class EmailService @Inject constructor() : NotificationService{
     private val TAG = "biswa_rx"
-    fun send(to: String,from: String, body: String?) {
-        Log.d(TAG, "Email service")
+    override fun send(to: String,from: String, body: String?) {
+        Log.d(TAG, "Email send")
+    }
+}
+
+class MessageService : NotificationService{
+    private val TAG = "biswa_rx"
+    override fun send(to: String,from: String, body: String?) {
+        Log.d(TAG, "Message send")
     }
 }
