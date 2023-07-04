@@ -2,11 +2,13 @@ package com.example.dagge2_practice
 
 import android.util.Log
 import javax.inject.Inject
+import javax.inject.Singleton
 
 
 interface NotificationService{
     fun send(to: String,from: String,body: String?)
 }
+@Singleton
 class EmailService @Inject constructor() : NotificationService{
     private val TAG = "biswa_rx"
     override fun send(to: String,from: String, body: String?) {
