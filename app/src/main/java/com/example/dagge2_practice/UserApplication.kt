@@ -3,10 +3,10 @@ package com.example.dagge2_practice
 import android.app.Application
 
 class UserApplication : Application() {
-    lateinit var userRegistrationComponent: UserRegistrationComponent
+    lateinit var appComponent: AppComponent
     override fun onCreate() {
         super.onCreate()
-        userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(5)
+        appComponent = DaggerAppComponent.builder().build()
 
     }
 }

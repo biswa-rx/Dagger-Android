@@ -8,7 +8,7 @@ import javax.inject.Singleton
 interface NotificationService{
     fun send(to: String,from: String,body: String?)
 }
-@ApplicationScope
+@ActivityScope
 class EmailService @Inject constructor() : NotificationService{
     private val TAG = "biswa_rx"
     override fun send(to: String,from: String, body: String?) {

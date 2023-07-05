@@ -7,7 +7,7 @@ import javax.inject.Singleton
 interface UserRepository {
     fun saveUser(email: String, Password: String)
 }
-@ApplicationScope
+@ActivityScope
 class SQLRepository @Inject constructor(private val analytics: AnalyticService): UserRepository{
     private val TAG = "biswa_rx"
     override fun saveUser(email: String, password: String) {
