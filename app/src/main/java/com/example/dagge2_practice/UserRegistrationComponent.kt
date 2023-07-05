@@ -5,11 +5,10 @@ import dagger.Component
 import javax.inject.Singleton
 
 @ApplicationScope
-@Component(modules = [UserRepositoryModule::class, NotificationServiceModule::class])
+@Component(modules = [UserRepositoryModule::class, NotificationServiceModule::class, AnalyticServiceModule::class])
 interface UserRegistrationComponent {
     fun inject(mainActivity: MainActivity)
 
-    fun getEmailService() : EmailService
 
     @Component.Factory
     interface Factory {
