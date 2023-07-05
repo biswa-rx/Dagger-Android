@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         val appComponent = (application as UserApplication).appComponent
 
-        val userRegistrationComponent = appComponent.getUserRegistrationComponentFactory().create(10)
+        val userRegistrationComponent = appComponent.getUserRegistrationComponentBuilder().retryCount(11).build()
         userRegistrationComponent.inject(this)
 
         userRegistrationService.resisterUser("Email","123")
