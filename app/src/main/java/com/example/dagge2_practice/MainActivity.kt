@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         val appComponent = (application as UserApplication).appComponent
 
-        val userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(8,appComponent)
+        val userRegistrationComponent = appComponent.getUserRegistrationComponentFactory().create(10)
         userRegistrationComponent.inject(this)
 
         userRegistrationService.resisterUser("Email","123")
